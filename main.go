@@ -115,9 +115,10 @@ func main() {
 			cleanedSummary := strings.ReplaceAll(event.Summary, failureTag, "")
 			cleanedSummary = strings.ReplaceAll(cleanedSummary, successTag, "")
 			cleanedSummary = strings.TrimSpace(cleanedSummary)
+			fmt.Printf("Executing title: %s\n", event.Summary)
 			cmd := exec.Command(scriptFullPath, event.Start.DateTime, event.End.DateTime, cleanedSummary, event.Location, event.Description)
 			out, err := cmd.CombinedOutput()
-			fmt.Println(string(out))
+			fmt.Printf("log for :%s\n", event.Summary, string(out))
 			var tag string
 			if err == nil {
 				tag = successTag
