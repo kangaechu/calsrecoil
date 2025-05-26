@@ -92,7 +92,7 @@ func main() {
 		if err != nil {
 			continue
 		}
-		if endTime.After(now.Add(time.Duration(runAfterMinutes) * time.Hour)) {
+		if endTime.After(now.Add(-1 * time.Duration(runAfterMinutes) * time.Minute)) {
 			continue // 終了していない
 		}
 		if strings.Contains(item.Summary, successTag) {
