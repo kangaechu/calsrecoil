@@ -94,6 +94,24 @@ go run main.go
 |--------------------|------|-------------------------------------------|
 | CALENDAR_ID        | 必須 | 対象GoogleカレンダーのID                  |
 | RUN_AFTER_MINUTES  | 任意 | 終了後何分経過したイベントを対象にするか   |
+| LOG_LEVEL          | 任意 | `debug`でスキップ理由・スクリプト出力も出力（既定は通常ログ） |
+
+---
+
+## ログ出力
+
+実行のたびに、`[calsrecoil]` タグ付きで以下を標準エラー出力（journaldで集約可能）に出力します。
+
+```
+[calsrecoil] 実行開始: calendar取得=5件 対象=1件 window(終了時刻)=2026-07-08T10:10:00+09:00〜2026-07-15T09:40:00+09:00 run_after=30min
+[calsrecoil] 対象: summary="XXXラジオ" station=TBS time=2026-07-15T10:00:00+09:00〜2026-07-15T10:30:00+09:00
+[calsrecoil] 実行: summary="XXXラジオ" station=TBS scriptを起動
+[calsrecoil] 完了: summary="XXXラジオ" exit=0
+[calsrecoil] 実行完了: 対象=1件 成功=1 失敗=0
+```
+
+- `window(終了時刻)` は選定に使った時間窓で、**イベントの終了時刻**が下限（1週間前）〜上限（`now - RUN_AFTER_MINUTES`）に収まる予定が対象です。
+- 個人情報保護の方針により、`CALENDAR_ID` はログに出力しません。
 
 ---
 
