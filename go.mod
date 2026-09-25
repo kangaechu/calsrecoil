@@ -2,7 +2,7 @@ module github.com/kangaechu/calsrecoil
 
 go 1.27.1
 
-require google.golang.org/api v0.298.0
+require google.golang.org/api v0.299.0
 
 require (
 	cloud.google.com/go/auth v0.23.3 // indirect
@@ -26,7 +26,7 @@ require (
 	golang.org/x/oauth2 v0.37.0 // indirect
 	golang.org/x/sys v0.48.0 // indirect
 	golang.org/x/text v0.42.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260918162117-cecb64721679 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459 // indirect
 	google.golang.org/grpc v1.84.0 // indirect
 	google.golang.org/protobuf v1.36.12 // indirect
 )
